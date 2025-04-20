@@ -1,5 +1,7 @@
 package com.chatgpt.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +25,7 @@ public class ChatGPTRESTController {
 	}
 
 	@PostMapping("/searchChatGPT")	
-	public String search(@RequestBody SearchRequest searchRequest) {
+	public String search(@RequestBody SearchRequest searchRequest) throws UnsupportedEncodingException {
 		log.info("Starting with search request with ChatGPT"+ searchRequest.getQuery());
 		//return searchRequest.getQuery();
 		return chatGPTService.processSearch(searchRequest.getQuery());
